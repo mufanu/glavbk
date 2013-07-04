@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * Реализация hook_menu()
+ */
+function simplecalc_menu() {
+  $items['calc'] = array(
+    'title' => 'Simple calc',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('simplecalc_form'),
+    'access callback' => true,
+  );
+  return $items;
+}
+
+/**
+ * Описание формы
+ */
+function simplecalc_form($form, &$form_state) {
+  $form['wrapper'] = array(
+    '#prefix' => '<div>',
+    '#suffix' => '</div>',
+  );
+  
+  $form['wrapper']['first-field'] = array(
+    '#prefix' => '<div class="container-inline">',
+    '#suffix' => '</div>',
+  );
+  
+  // Сумма кредита
+  $form['wrapper']['first-field']['total'] = array(
+  	'#type' => 'textfield',
+  	'#title' => "Сумма кредита",
+    '#size' => 5,
+  );
+  // Валюта кредита
+  $form['wrapper']['first-field']['currency'] = array(
+    '#type' => 'select',
+    '#options' => array(
+		'rur' => t("RUR"),
+		'usd' => t("USD"),
+		'eur' => t("EUR"),
+	),
+  );  
+  
+  // Процентная ставка
+  $form['wrapper']['rate'] = array(
+    '#type' => 'textfield',
+    '#size' => 3,
+  );
+  
+  // Срок кредита
+  $form['wrapper']['credit_term'] = array(
+    '#type' => 'select',
+    '#options' => array(
+		'6' => t("6 мес."),
+		'12' => t("1 год"),
+		'24' => t("2 года"),
+	),
+  );
+  
+  // Кнопка расчитать
+  $form['wrapper']['answer'] = array(
+    '#prefix' => '<div id="answer">',
+    '#suffix' => '</div>',
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Расчитать',
+    '#ajax' => array(
+      'callback' => 'simplecalc_callback',
+      'wrapper' => 'answer',
+      'method' => 'html',
+    ),
+  );
+  // Кнопка очисить
+  $form['clear'] = array(
+    '#type' => 'submit',
+    '#value' => 'Очистить',
+    '#ajax' => array(
+      'callback' => 'simplecalc_callback',
+      'wrapper' => 'answer',
+      'method' => 'html',
+    ),
+	);
+  return $form;
+}
+
+/**
+ * AJAX callback
+ */
+function simplecalc_callback($form, $form_state) {
+  return strval($form_state['values']['number1'] + $form_state['values']['number2']);
+}

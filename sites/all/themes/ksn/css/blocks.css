@@ -1,0 +1,181 @@
+/**
+ * @file
+ * Block Styling
+ */
+
+.block { /* Block wrapper */
+	margin-bottom: 1.5em;
+}
+.block.first { /* The first block in the region */
+}
+.block.last { /* The last block in the region */
+}
+.block.odd { /* Zebra striping for each block in the region */
+}
+.block.even { /* Zebra striping for each block in the region */
+}
+h2.block-title { /* Block title */
+}
+#block-aggregator-category-1 { /* Block for the latest news items in the first category */
+}
+#block-aggregator-feed-1 { /* Block for the latest news items in the first feed */
+}
+#block-block-1 { /* First block created with "Add block" link */
+}
+
+#block-block-1 a.block {
+  border: 1px solid #f6f6f7;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+#block-block-6 {
+  background: #a9c467;
+  background: -moz-linear-gradient(top, #a9c467, #74922c); /*  Firefox 3.6+ */
+  background: -webkit-linear-gradient(top, #a9c467, #74922c);
+  background: -o-linear-gradient(top, #a9c467, #74922c); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a9c467, #74922c); /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9c467', endColorstr='#74922c');
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  padding: 5px 3px;
+}
+
+#block-block-6 h3 {
+	margin: 5px 0 10px 0;
+  text-align: center;
+  text-shadow: 1px 1px 1px #000;
+}
+#block-block-7 {
+	margin: 0 0 0 25px;
+}
+#block-blog-recent { /* "Recent blog posts" block */
+}
+#block-book-navigation { /* "Book navigation" block for the current book's table of contents */
+}
+#block-comment-recent { /* "Recent comments" block */
+}
+#block-forum-active { /* "Active forum topics" block */
+}
+#block-forum-new { /* "New forum topics" block */
+}
+#block-locale-language { /* Language switcher block */
+}
+#block-menu-menu-NAME { /* Custom menu block */
+}
+#block-node-recent { /* "Recent content" block */
+}
+#block-node-syndicate { /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
+}
+#block-poll-recent { /* "Most recent poll" block */
+}
+#block-profile-author-information { /* "Author information" block for the profile of the page's author */
+}
+#block-search-form { /* "Search form" block */
+}
+#block-search-form #edit-search-block-form--2 {
+	background: url(../images/search-icon.png) no-repeat scroll 5px 4px;
+  background-color: #f1f3f3;
+	text-indent: 30px;
+	border: 1px solid #848388;
+	border-radius: 15px;
+	height: 22px;
+	width: 100%;
+  color: #949494;
+}
+#block-search-form .form-actions {
+	display: none;
+}
+#block-shortcut-shortcuts { /* "Shortcuts" block */
+}
+#block-statistics-popular { /* "Popular content" block */
+}
+#block-system-main-menu { /* "Main menu" block */
+}
+#block-system-management { /* "Management" block for Drupal management menu */
+}
+#block-system-navigation { /* "Navigation" block for Drupal navigation menu */
+}
+#block-system-user-menu { /* "User menu" block for Drupal user menu */
+}
+#block-system-help { /* "System help" block */
+}
+#block-system-main { /* "Main page content" block */
+}
+#block-system-powered-by { /* "Powered by Drupal" block */
+}
+#block-user-login { /* "User login form" block */
+}
+#block-user-new { /* "Who's new" block for a list of the newest users */
+}
+#block-user-online { /* "Who's online" block for a list of the online users */
+}
+#block-views-banks-block {
+	border: 2px #9a9a9a dotted;
+	text-align: center;
+	border-radius: 10px;
+}
+#block-views-banks-block h3 {
+	margin: 5px 0;
+}
+#block-views-news-block .block-title {
+	color: #383838;
+	text-decoration: none;
+}
+#block-views-news-block .block-title:hover {
+	text-decoration: underline;
+}
+#block-views-news-block h3 {
+	margin: 5px 0;
+}
+
+/*
+ * Calculator styling
+ */
+#block-credit-calc-calc,
+#calculator,
+#block-user-login {
+	background: #f5f5f5;
+	border-radius: 10px;
+	padding: 10px;
+}
+#block-credit-calc-calc h3 a {
+  text-decoration: none;
+  color: #000;
+}
+
+#block-credit-calc-calc h3 a:hover {
+  text-decoration: underline;
+}
+
+#block-credit-calc-calc label {
+	color: #727171;
+	font-style: italic;
+	font-size: 13px;
+	font-weight: normal;
+}
+#block-credit-calc-calc .container-inline .form-item-total label,
+#calculator .container-inline label {
+	display: block;
+}
+#block-credit-calc-calc #edit-total {
+	width: 120px;
+}
+#block-credit-calc-calc .form-item-rate input,
+#block-credit-calc-calc .form-item-credit-term select {
+	width: 181px;
+}
+
+#block-credit-calc-calc .form-submit,
+#calculator .form-submit {
+  color: #fff;
+}
+
+#calculator .ajax-progress {
+  display: none;
+}
+
+#block-credit-calc-calc #reset {
+  margin-left: 6px;
+}

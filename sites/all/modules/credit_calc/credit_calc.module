@@ -1,0 +1,338 @@
+<?php
+// Константы по умолчанию
+// Сумма кредита
+define('TOTAL', 10000);
+// Валюта кредита
+define('CURRENCY', 'rur');
+// Проценты
+define('RATE', 14);
+// Срок кредита
+define('CREDIT_TERM', 6);
+
+/**
+ * Implements hook_menu().
+ */
+function credit_calc_menu() {
+  $items['calculator'] = array(
+    'title' => 'Калькулятор',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('credit_calc_form'),
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+/**
+ * Implemets hook_block_info().
+ */
+function credit_calc_block_info() {
+  $blocks['calc'] = array(
+    'info' => 'Калькулятор',
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function credit_calc_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'calc':
+      $block['subject'] = 'Калькулятор';
+      $block['content'] = drupal_get_form('credit_calc_block_form');
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Описание формы для блока
+ */
+function credit_calc_block_form($form, &$form_state) {
+  $form['first-field'] = array(
+    '#prefix' => '<div class="container-inline">',
+    '#suffix' => '</div>',
+  );
+
+  // Сумма кредита
+  $form['first-field']['total'] = array(
+    '#type' => 'textfield',
+    '#title' => "Сумма кредита:",
+    '#size' => 14,
+    '#default_value' => TOTAL,
+  );
+  // Валюта кредита
+  $form['first-field']['currency'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'rur' => t("RUR"),
+      'usd' => t("USD"),
+      'eur' => t("EUR"),
+    ),
+  );
+  // Процентная ставка
+  $form['rate'] = array(
+    '#type' => 'textfield',
+    '#title' => "Процентная ставка:",
+    '#size' => 24,
+    '#default_value' => RATE,
+  );
+
+  // Срок кредита
+  $form['credit_term'] = array(
+    '#type' => 'select',
+    '#title' => "Срок кредита:",
+    '#options' => array(
+      '6' => t("6 мес."),
+      '12' => t("1 год"),
+      '24' => t("2 года"),
+      '36' => t("3 года"),
+      '48' => t("4 года"),
+      '60' => t("5 лет"),
+    ),
+  );
+  // Кнопка расчитать
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Рассчитать',
+  );
+  // Кнопка очисить
+  $form['clear'] = array(
+    '#markup' => '<input id="edit-clear" class="form-submit" type="reset" value="Очистить" name="op">',
+    '#validate' => array('credit_calc_form_clear'),
+  );
+  return $form;
+}
+
+
+function credit_calc_block_form_submit($form, &$form_state) {
+  $form_state['redirect'] = array(
+    'calculator',
+    array(
+      'query' => array(
+        'total' => $form_state['values']['total'],
+        'currency' => $form_state['values']['currency'],
+        'rate' => $form_state['values']['rate'],
+        'credit_term' => $form_state['values']['credit_term'],
+      ),
+    ),
+  );
+}
+
+/**
+ * Описание формы
+ */
+function credit_calc_form($form, &$form_state) {
+
+  if (isset($_GET['total'])) {
+    $data = array(
+      'total' => $_GET['total'],
+      'currency' => $_GET['currency'],
+      'rate' => $_GET['rate'],
+      'credit_term' => $_GET['credit_term'],
+    );
+  } else {
+    $data = array(
+      'total' => TOTAL,
+      'currency' => CURRENCY,
+      'rate' => RATE,
+      'credit_term' => CREDIT_TERM,
+    );
+  }
+
+  $form['wrapper'] = array(
+    '#prefix' => '<div id="calculator">',
+    '#suffix' => '</div>',
+  );
+
+  $form['wrapper']['first-field'] = array(
+    '#prefix' => '<div class="container-inline">',
+    '#suffix' => '</div>',
+  );
+
+  // Сумма кредита
+  $form['wrapper']['first-field']['total'] = array(
+    '#type' => 'textfield',
+    '#title' => "Сумма кредита:",
+    '#size' => 14,
+    '#required' => TRUE,
+    '#default_value' => $data['total'],
+  );
+  // Валюта кредита
+  $form['wrapper']['first-field']['currency'] = array(
+    '#type' => 'select',
+    '#options' => array(
+      'rur' => t("RUR"),
+      'usd' => t("USD"),
+      'eur' => t("EUR"),
+    ),
+  );
+
+  // Процентная ставка
+  $form['wrapper']['rate'] = array(
+    '#type' => 'textfield',
+    '#title' => "Процентная ставка:",
+    '#size' => 1,
+    '#required' => TRUE,
+    '#field_suffix' => '%',
+    '#default_value' => $data['rate'],
+  );
+
+  // Срок кредита
+  $form['wrapper']['credit_term'] = array(
+    '#type' => 'select',
+    '#title' => "Срок кредита:",
+    '#options' => array(
+      '6' => t("6 мес."),
+      '12' => t("1 год"),
+      '24' => t("2 года"),
+      '36' => t("3 года"),
+      '48' => t("4 года"),
+      '60' => t("5 лет"),
+    ),
+  );
+  // Кнопка расчитать
+  $form['wrapper']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => 'Рассчитать',
+  );
+
+  if (isset($form_state['table'])) {
+    $form['table'] = array(
+      '#markup' => $form_state['table'],
+    );
+  }
+
+  if (isset($_GET['total'])) {
+    $form['table'] = array(
+      '#markup' => credit_calc_calculate($data),
+    );
+  }
+
+  return $form;
+}
+
+/**
+ * Проверка введенных данных
+ */
+function credit_calc_form_validate($form, &$form_state) {
+  if (!is_numeric($form_state['values']['total'])) {
+    form_set_error('total', t('Введена некорректная сумма кредита.'));
+  }
+  if (!is_numeric($form_state['values']['rate'])) {
+    form_set_error('rate', t('Введена некорректная процентная ставка.'));
+  }
+}
+
+
+/**
+ * form submit. Calculate credit.
+ */
+
+function credit_calc_form_submit($form, &$form_state) {
+  $form_state['redirect'] = array(
+    'calculator',
+    array(
+      'query' => array(
+        'total' => $form_state['values']['total'],
+        'currency' => $form_state['values']['currency'],
+        'rate' => $form_state['values']['rate'],
+        'credit_term' => $form_state['values']['credit_term'],
+      ),
+    ),
+  );
+}
+
+
+function credit_calc_calculate($data) {
+  // Сумма кредита
+  $total = $data['total'];
+  // Срок кредита
+  $credit_term = $data['credit_term'];
+  // Процентная ставка
+  $stavka = $data['rate'] / 1200;
+  // Рассчет ежемесячного платежа
+  $pl = strval(round($total * $stavka / (1 - 1 / pow((1 + $stavka), $credit_term)), 2));
+  $sum = 0;
+
+  //Дальше создаем таблицу и выводим полученные данные
+  // Создаем   заголовок таблицы
+  $caption = t('Кредитный калькулятор, график платежей');
+  // Создаем заголовки столбцов
+  $header = array(
+    // Первый столбец
+    array(
+      'data' => t('№'),
+    ),
+    array(
+      'data' => t('Платеж'),
+    ),
+    array(
+      'data' => t('Проценты'),
+    ),
+    array(
+      'data' => t('Основной долг'),
+    ),
+    array(
+      'data' => t('Задолженность'),
+    )
+  );
+
+  for ($i = 0; $i < $credit_term; $i++) {
+    // Номер платежа
+    $number = $i + 1;
+    // Сумма ежемесячного платежа
+    $month_pl = $pl;
+    // Процент
+    $percent = ($total*$stavka);
+    // Остаток основого долга
+    $total = $total - ($pl - $percent);
+    // Сумма переплаты
+    $sum = $sum + $percent;
+
+    $rows[] = array(
+      // Номер платежа
+      array(
+        'data' => $number,
+      ),
+      array(
+        'data' => round($pl),
+      ),
+      array(
+        'data' => round($percent),
+      ),
+      array(
+        'data' => round($pl - $percent),
+      ),
+      array(
+        'data' => abs(round($total)),
+      ),
+    );
+  };
+
+  $output = theme('table', array(
+      // Шапка таблицы
+      'header' => $header,
+      // Тело таблицы
+      'rows' => $rows,
+      // Заголовок таблицы
+      'caption' => $caption,
+      // Атрибуты таблицы
+      'attributes' => array('width' => '100%')
+    )
+  );
+
+  $output .= '<div>Переплата по процентам за кредит: ' . round($sum) . '</div>';
+
+  //debug($form_state['values']);
+
+  return $output;
+}
+
+function credit_calc_form_clear($form, &$form_state) {
+  $form_state['rebuild'] = TRUE;
+}

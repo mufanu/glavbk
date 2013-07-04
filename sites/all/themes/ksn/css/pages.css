@@ -1,0 +1,512 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+
+/*
+ * Body
+ */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+#skip-link {
+  margin: 0;
+}
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #fff;
+}
+
+/*
+ * Header
+ */
+#header {
+	height: 215px;
+}
+
+#logo { /* Wrapping link for logo */
+  float: left; /* LTR */
+  margin: 0;
+  padding: 0;
+}
+
+#logo img {
+  vertical-align: bottom;
+}
+
+#name-and-slogan { /* Wrapper for website name and slogan */
+  float: left;
+}
+
+#site-name { /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+#site-slogan { /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 26px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: normal;
+	margin: 95px 0 0 70px;
+}
+
+#left-arrow,
+#right-arrow {
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+}
+
+#left-arrow {
+	background: url(../images/arrows2.png) no-repeat;
+}
+
+#right-arrow {
+	background: url(../images/arrows2.png) no-repeat scroll -16px 0;
+}
+
+.region-header { /* Wrapper for any blocks placed in the header region */
+  clear: both; /* Clear the logo */
+}
+
+/*
+ * Banners
+ */
+#banners {
+	height: 200px;
+	margin-bottom: 40px;
+}
+
+.region-banners {
+	padding-left: 264px;
+}
+
+.banners-item {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+}
+
+#banners .first-item,
+#banners .second-item {
+	margin-right: 71px;
+}
+
+.banners-title {
+	display: block;
+	text-align: center;
+	margin-top: 176px;
+	color: #666;
+	font-size: 20px;
+	position: absolute;
+	width: inherit;
+}
+
+.banners-item a {
+	width: 200px;
+	height: 200px;
+	text-decoration: none;
+	display: block;
+}
+
+/*
+ * Main (container for everything else)
+ */
+#main {
+}
+
+/*
+ * Banners2
+ */
+#banners2 .views-row {
+	height: 110px;
+	width: 167px;
+	display: inline-table;
+	margin-right: 11px;
+	font-size: 0.92em;
+	padding: 10px 10px 0 10px;
+	line-height: 1.3em;
+  border-radius: 10px;
+}
+
+#banners2 .views-row:hover {
+  background: #ededed;
+  box-shadow: 3px 3px 3px #999;
+}
+
+#banners2 .views-row-last {
+  margin-right: 0;
+}
+
+#banners2 .views-field-title {
+	display: block;
+	font-size: 1.2em;
+	color: #1c8eca;
+}
+
+
+#banners3 .inner {
+	width: 100%;
+	height: 100px;
+	border: 1px solid #c3c3c3;
+}
+
+#banners4 .inner {
+	margin-top: 25px;
+	margin-bottom: 50px;
+	height: 194px;
+}
+
+#banners4 .first-item {
+	padding: 20px 0 25px;
+}
+
+#banners4 .content {
+	width: 454px;
+	float: left;
+	font-size: 22px;
+	font-weight: bold;
+	text-align: center;
+	color: #383838;
+}
+
+#banners4 .arrow {
+	height: 42px;
+	width: 96px;
+	margin-left: 440px;
+}
+
+#banners4 .first-item .arrow {
+	background: url(../images/arrows.png) no-repeat scroll -96px;
+}
+
+#banners4 .second-item .arrow {
+	background: url(../images/arrows.png) no-repeat;
+}
+
+#banners4 .second-item .content {
+	color:#d28a1e;
+	line-height: 42px;
+}
+
+#banners4 a.link {
+	height: 90px;
+	display: inline-block;
+	float: right;
+}
+
+#banners4 .first-item a.link {
+	background: url(../images/banners4-icons.png) no-repeat;
+	margin-top: -10px;
+	width: 200px;
+	margin-right: 5px;
+}
+
+#banners4 .second-item a.link {
+	background: url(../images/banners4-icons.png) no-repeat scroll -200px;
+	margin-top: -25px;
+	width: 200px;
+}
+
+/*
+ * Content
+ */
+#content {
+}
+.region-highlighted {
+}
+
+.breadcrumb { /* The path to the current page in the form of a list of links */
+}
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1.title, /* The title of the page */
+h2.node-title, /* Title of a piece of content when it is given in a list of content */
+h2.block-title, /* Block title */
+h2.title, /* Comment section heading */
+h2.comment-form, /* Comment form heading */
+h3.title { /* Comment title */
+  margin: 0;
+}
+
+#page-title {
+	color: #95bb27;
+  font-size: 1.7em;
+}
+
+tr.even { /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+tr.odd {
+  /* background-color: #eee; */ /* Drupal core uses a #eee background */
+}
+
+div.messages { /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0; /* Drupal core uses "6px 0" margin */
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.status { /* Normal priority messages */
+}
+
+div.warning,
+tr.warning { /* Medium priority messages */
+  /* border: 1px solid #f0c020; */ /* Drupal core uses: 1px solid #f0c020 */
+}
+
+div.error,
+tr.error { /* High priority messages. See also the .error declaration below. */
+}
+
+.error { /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */ /* Drupal core uses a #e55 background */
+}
+
+.warning { /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */ /* Drupal core uses a #e09010 background */
+}
+
+.tabs { /* See also the tabs.css file. */
+}
+
+.region-help { /* Help text on a page */
+}
+
+.more-help-link { /* Link to more help */
+}
+
+#creapp {
+  display: block;
+  width: 208px;
+  line-height: 44px;
+  text-align: center;
+  background: #3398d6;
+  background: -moz-linear-gradient(top, #3398d6, #257ec8); /*  Firefox 3.6+ */
+  background: -webkit-linear-gradient(top, #3398d6, #257ec8);
+  background: -o-linear-gradient(top, #3398d6, #257ec8); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #3398d6, #257ec8); /* IE10+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3398d6', endColorstr='#257ec8');
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.region-content { /* Wrapper for the actual page content */
+}
+
+ul.inline { /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0; /* LTR */
+}
+
+span.field-label { /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0; /* LTR */
+}
+
+.item-list .pager { /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+
+.item-list .pager li { /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+.feed-icon { /* The link to the RSS or Atom feed for the current list of content */
+}
+
+.more-link { /* Aggregator, blog, and forum more link */
+}
+
+#site-map h2.title {
+	display: none;
+}
+
+#site-map .site-map-box,
+#site-map .site-map-box ul {
+	margin: 0;
+}
+
+/*
+ * Forum
+ */
+#forum {
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+.region-sidebar-first {
+
+}
+
+
+
+#rss {
+	background: url(../images/icons.png) no-repeat;
+	height: 17px;
+	width: 16px;
+	display: inline-block;
+}
+
+#e-mail {
+	background: url(../images/icons.png) no-repeat scroll -16px;
+	height: 17px;
+	width: 16px;
+	display: inline-block;
+}
+
+#home {
+	background: url(../images/icons.png) no-repeat scroll -32px;
+	height: 17px;
+	width: 14px;
+	display: inline-block;
+}
+
+#phone {
+	font-size: 18px;
+}
+
+#mailto a {
+  color: #fff;
+  font-size: 18px;
+}
+
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+.region-sidebar-second {
+}
+
+.region-sidebar-second h3 {
+	margin: 5px 0;
+}
+
+.region-sidebar-second ul.menu {
+	padding: 0;
+	margin: 0;
+}
+
+.region-sidebar-second ul.menu li {
+	list-style: none;
+	line-height: 1.3em;
+}
+
+.region-sidebar-second ul.menu a {
+	color: #1c8eca;
+	font-size: 13px;
+}
+
+/*
+ * Footer
+ */
+#footer {
+	border-radius: 5px;
+	color: #fff;
+	padding: 20px 17px;
+}
+
+#footer .block {
+	float: left;
+	width: 125px;
+	margin-right: 18px;
+}
+
+#footer .block.last {
+	margin-right: 0;
+}
+
+#footer a {
+	color: #cfcfcf;
+	font-size: 11px;
+	text-decoration: none;
+}
+
+#footer a:hover {
+	text-decoration: underline;
+}
+
+#footer h3 {
+	margin: 0;
+}
+
+#footer ul.menu {
+	padding: 0;
+	margin: 0;
+}
+
+#footer ul.menu li {
+	list-style: none;
+	line-height: 1em;
+}
+
+/*
+ * Page bottom
+ */
+.region-bottom { /* Wrapper for any blocks placed in the page bottom region */
+	color: #797979;
+	margin-top: 10px;
+}
+
+.region-bottom a {
+	color: #1c8eca;
+}
