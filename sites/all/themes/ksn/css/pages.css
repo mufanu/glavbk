@@ -151,12 +151,11 @@ body {
  * Banners2
  */
 #banners2 .views-row {
-	height: 110px;
-	width: 167px;
+	height: 120px;
+	width: 187px;
 	display: inline-table;
 	margin-right: 11px;
 	font-size: 0.92em;
-	padding: 10px 10px 0 10px;
 	line-height: 1.3em;
   border-radius: 10px;
 }
@@ -171,9 +170,7 @@ body {
 }
 
 #banners2 .views-field-title {
-	display: block;
 	font-size: 1.2em;
-	color: #1c8eca;
 }
 
 

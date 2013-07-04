@@ -179,3 +179,14 @@ h2.block-title { /* Block title */
 #block-credit-calc-calc #reset {
   margin-left: 6px;
 }
+
+#block-views-4-blocks-block a.link {
+  display: block;
+  height: 120px;
+  position: absolute;
+  width: 187px;
+}
+
+#block-views-4-blocks-block .wrapper {
+  padding: 10px 10px 0;
+}
