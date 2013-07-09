@@ -377,6 +377,11 @@ span.field-label { /* The inline field label used by the Fences module */
 	margin: 0;
 }
 
+#content-menu .block-menu {
+  display: table-cell;
+  width: 285px;
+}
+
 /*
  * Forum
  */
