@@ -140,6 +140,8 @@ function ksn_preprocess_html(&$variables, $hook) {
   if (isset($page['banners4'])) {
     $variables['classes_array'][] = 'with-banner4';
   }
+  $variables['head_title'] = 'Кредитный калькулятор на сайте компании «Главбк» – универсальное средство для определения суммы выплат по кредитам.';
+
 }
 
 /**
