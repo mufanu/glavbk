@@ -382,6 +382,12 @@ span.field-label { /* The inline field label used by the Fences module */
   width: 285px;
 }
 
+.node-type-webform .webform-client-form {
+  background: #85abf2;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 /*
  * Forum
  */
