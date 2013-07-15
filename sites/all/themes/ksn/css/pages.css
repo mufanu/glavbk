@@ -319,7 +319,8 @@ tr.error { /* High priority messages. See also the .error declaration below. */
 .more-help-link { /* Link to more help */
 }
 
-#creapp {
+#creapp,
+#block-menu-menu-application h3 {
   display: block;
   width: 208px;
   line-height: 44px;
@@ -333,6 +334,7 @@ tr.error { /* High priority messages. See also the .error declaration below. */
   border-radius: 5px;
   color: #fff;
   font-size: 16px;
+  font-weight: normal;
   text-decoration: none;
 }
 
