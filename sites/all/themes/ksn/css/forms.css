@@ -142,37 +142,3 @@ form table .item-list ul {
 td.menu-disabled {
   background: #ccc;
 }
-
-/*
- * Credit calc table
- */
-#credit-calc-form {
-  font-size: 13px;
-}
-#credit-calc-form caption {
-  color: #95BB27;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-#credit-calc-form th {
-  text-align: center;
-  padding: 3px;
-  border: 1px solid #7CAA13;
-  background-color: #C1DC83;
-  color: #004000;
-}
-
-#credit-calc-form td {
-  border: 1px solid #7CAA13;
-  padding: 5px;
-  text-align: center;
-  color: #747272;
-}
-
-#calculator .form-item-total label,
-#calculator .form-item-rate label,
-#calculator .form-item-credit-term label {
-  display: inline-block;
-  width: 150px;
-}

@@ -130,54 +130,10 @@ h2.block-title { /* Block title */
 	margin: 5px 0;
 }
 
-/*
- * Calculator styling
- */
-#block-credit-calc-calc,
-#calculator,
 #block-user-login {
 	background: #f5f5f5;
 	border-radius: 10px;
 	padding: 10px;
-}
-#block-credit-calc-calc h3 a {
-  text-decoration: none;
-  color: #000;
-}
-
-#block-credit-calc-calc h3 a:hover {
-  text-decoration: underline;
-}
-
-#block-credit-calc-calc label {
-	color: #727171;
-	font-style: italic;
-	font-size: 13px;
-	font-weight: normal;
-}
-#block-credit-calc-calc .container-inline .form-item-total label,
-#calculator .container-inline label {
-	display: block;
-}
-#block-credit-calc-calc #edit-total {
-	width: 120px;
-}
-#block-credit-calc-calc .form-item-rate input,
-#block-credit-calc-calc .form-item-credit-term select {
-	width: 181px;
-}
-
-#block-credit-calc-calc .form-submit,
-#calculator .form-submit {
-  color: #fff;
-}
-
-#calculator .ajax-progress {
-  display: none;
-}
-
-#block-credit-calc-calc #reset {
-  margin-left: 6px;
 }
 
 #block-views-4-blocks-block a.link {

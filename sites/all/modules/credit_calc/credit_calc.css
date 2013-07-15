@@ -1,0 +1,117 @@
+/*
+ * Calculator block styling
+ */
+#block-credit-calc-calc {
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#block-credit-calc-calc h3 a {
+  text-decoration: none;
+  color: #000;
+}
+
+#block-credit-calc-calc h3 a:hover {
+  text-decoration: underline;
+}
+
+#block-credit-calc-calc label {
+  color: #727171;
+  font-style: italic;
+  font-size: 13px;
+  font-weight: normal;
+}
+#block-credit-calc-calc .container-inline .form-item-total label {
+  display: block;
+}
+#block-credit-calc-calc #edit-total {
+  width: 120px;
+}
+#block-credit-calc-calc .form-item-rate input,
+#block-credit-calc-calc .form-item-credit-term select {
+  width: 181px;
+}
+
+#block-credit-calc-calc .form-submit {
+  color: #fff;
+}
+
+/*
+ * Calculator styling
+ */
+
+#calculator {
+  background: url(background.png) no-repeat;
+  width: 424px;
+  height: 368px;
+  padding: 40px 60px;
+  color: #fff;
+}
+
+#calculator .form-item-total label,
+#calculator .form-item-rate label,
+#calculator .form-item-credit-term label {
+  display: block;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px #000;
+  padding-left: 30px;
+}
+
+#calculator input,
+#calculator select {
+  border-radius: 5px;
+  border: 0;
+  padding: 5px 30px;
+  color: #858282;
+}
+
+#calculator select {
+  padding: 4px 5px;
+}
+
+#calculator #edit-total {
+  width: 228px;
+}
+
+#calculator .form-required {
+  color: #fff;
+}
+
+#calculator-submit {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#calculator-submit input#edit-submit {
+  background: url(calc-submit.png) no-repeat;
+  border-radius: 0;
+  width: 194px;
+  height: 49px;
+  font-size: 24px;
+}
+
+/*
+ * Credit calc table
+ */
+#calc-results {
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+#calc-results tr,
+#calc-results th,
+#calc-results td {
+  border-color: #f7f7f7;
+}
+
+#calc-results th {
+  border: 0!important;
+}
+
+#calc-results td {
+  background:  #fff;
+  border: 10px;
+}

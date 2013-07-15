@@ -195,8 +195,13 @@ function credit_calc_form($form, &$form_state) {
       '60' => t("5 лет"),
     ),
   );
+
+  $form['submit-wrapper'] = array(
+    '#prefix' => '<div id="calculator-submit">',
+    '#suffix' => '</div>',
+  );
   // Кнопка расчитать
-  $form['wrapper']['submit'] = array(
+  $form['submit-wrapper']['submit'] = array(
     '#type' => 'submit',
     '#value' => 'Рассчитать',
   );
@@ -209,7 +214,7 @@ function credit_calc_form($form, &$form_state) {
 
   if (isset($_GET['total'])) {
     $form['table'] = array(
-      '#markup' => credit_calc_calculate($data),
+      '#markup' => '<div id="calc-results">' . credit_calc_calculate($data) . '</div>',
     );
   }
 
@@ -266,7 +271,7 @@ function credit_calc_calculate($data) {
   $header = array(
     // Первый столбец
     array(
-      'data' => t('№'),
+      'data' => t('Месяц'),
     ),
     array(
       'data' => t('Платеж'),
