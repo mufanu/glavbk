@@ -150,18 +150,43 @@ function credit_calc_form($form, &$form_state) {
   );
 
   $form['wrapper']['first-field'] = array(
-    '#prefix' => '<div class="container-inline">',
+    '#prefix' => '<div class="clearfix">',
     '#suffix' => '</div>',
   );
 
   // Сумма кредита
   $form['wrapper']['first-field']['total'] = array(
-    '#type' => 'textfield',
-    '#title' => "Сумма кредита:",
-    '#size' => 14,
-    '#required' => TRUE,
+    '#type' => 'slider',
+    '#title' => 'Сумма кредита',
+    '#input_title' => t('Min'),
+    '#input2_title' => t('Max'),
+    '#animate' => 'fast',
+    'adjust_field_min' => NULL,
+    'adjust_field_max' => NULL,
+    '#disabled' => FALSE,
+    '#max' => 300000000,
+    '#min' => 10000,
+    '#orientation' => 'horizontal',
+    '#range' => FALSE,
+    '#step' => 10000,
+    //'#value' => 0,
     '#default_value' => $data['total'],
+    '#slider_style' => NULL,
+    '#size' => 10,
+    '#display_inputs' => TRUE,
+    '#display_values' => FALSE,
+    '#display_values_format' => '%{value}%',
+    '#display_bubble' => FALSE,
+    '#display_bubble_format' => '%{value}%',
+    '#slider_length' => NULL,
+    '#display_inside_fieldset' => FALSE,
+    '#group' => NULL,
+    '#group_type' => 'same',
+    '#group_master' => FALSE,
+    '#validate_range' => TRUE
   );
+
+
   // Валюта кредита
   $form['wrapper']['first-field']['currency'] = array(
     '#type' => 'select',
