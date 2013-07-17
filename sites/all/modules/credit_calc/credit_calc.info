@@ -3,4 +3,6 @@ description = Simple credit calculator
 core = 7.x
 version = 7.x-1.1
 
+dependencies[] = sliderfield
+
 stylesheets[all][] = credit_calc.css

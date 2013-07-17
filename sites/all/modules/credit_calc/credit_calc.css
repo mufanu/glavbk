@@ -58,20 +58,61 @@
   padding-left: 30px;
 }
 
-#calculator input,
-#calculator select {
+#calculator .form-item-total {
+  float: left;
+}
+
+#calculator #edit-total-value {
+  width: 230px;
+  margin-right: 20px;
+}
+
+#calculator .ui-slider-horizontal {
+  margin-top: 13px;
+  width: 370px;
+}
+
+/*
+#calculator #edit-total-container {
+  background: url(total-bg.png) no-repeat;
+  padding: 0 30px;
+}
+
+#calculator .ui-slider-handle {
+  background: url(slider-button.png) no-repeat;
+  border: none;
+  margin-top: 11px;
+  cursor: pointer;
+}
+*/
+
+#calculator .form-item-currency {
+  float: left;
+  margin-top: 42px;
+  margin-left: -65px;
+}
+
+#calculator select,
+#calculator .sliderfield-display-values-field {
+  background: #fff;
   border-radius: 5px;
-  border: 0;
-  padding: 5px 30px;
+  padding: 5px 0;
   color: #858282;
+  text-align: center;
+  width: 85px;
 }
 
 #calculator select {
-  padding: 4px 5px;
+  border: 0;
+  width: 64px;
+  height: 31px;
+  padding: 7px 5px;
 }
 
-#calculator #edit-total {
-  width: 228px;
+#calculator #edit-total .sliderfield-display-values-field {
+  width: 275px;
+  text-align: left;
+  padding-left: 25px;
 }
 
 #calculator .form-required {
