@@ -136,16 +136,51 @@
  * Credit calc table
  */
 #calc-results {
-  padding: 20px;
-  background: #f7f7f7;
-  border-radius: 10px;
-  margin: 20px 0;
+  font-size: 12px;
+  color: #7f7f7f;
 }
 
-#calc-results tr,
-#calc-results th,
-#calc-results td {
-  border-color: #f7f7f7;
+#calc-results h2 {
+  font-weight: normal;
+  margin: 0;
+}
+
+#calc-results .wrapper {
+  padding: 20px;
+  background: #f7f7f7;
+  margin: 10px 0;
+}
+
+#calc-results #result-header {
+  border-radius: 10px 10px 0 0;
+}
+
+#calc-results #result-header span {
+  background: #fff;
+  border-radius: 5px;
+  padding: 2px 15px;
+  display: inline-block;
+}
+
+#calc-results #result-header .rows {
+  margin-bottom: 10px;
+}
+
+#calc-results #result-header .label {
+  width: 370px;
+  margin-right: 50px;
+}
+
+#calc-results #result-header .value {
+  width: 45px;
+}
+
+#calc-results #result-table {
+  border-radius: 0 0 10px 10px;
+}
+
+#calc-results tbody {
+  border: 0;
 }
 
 #calc-results th {
@@ -154,5 +189,6 @@
 
 #calc-results td {
   background:  #fff;
-  border: 10px;
+  border-bottom: 10px solid #f7f6f6;
+  border-left: 1px solid #f7f6f6;
 }

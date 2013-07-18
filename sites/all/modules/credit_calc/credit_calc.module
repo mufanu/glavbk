@@ -1,7 +1,7 @@
 <?php
 // Константы по умолчанию
 // Сумма кредита
-define('TOTAL', 10000);
+define('TOTAL', 300000);
 // Валюта кредита
 define('CURRENCY', 'rur');
 // Проценты
@@ -165,8 +165,8 @@ function credit_calc_form($form, &$form_state) {
     'adjust_field_max' => NULL,
     '#disabled' => FALSE,
     '#required' => TRUE,
-    '#max' => 300000000,
-    '#min' => 10000,
+    '#max' => 20000000,
+    '#min' => 300000,
     '#orientation' => 'horizontal',
     '#range' => TRUE,
     '#step' => 10000,
@@ -209,8 +209,8 @@ function credit_calc_form($form, &$form_state) {
     'adjust_field_max' => NULL,
     '#disabled' => FALSE,
     '#required' => TRUE,
-    '#max' => 30,
-    '#min' => 6,
+    '#max' => 40,
+    '#min' => 12,
     '#orientation' => 'horizontal',
     '#range' => FALSE,
     '#step' => 1,
@@ -242,7 +242,7 @@ function credit_calc_form($form, &$form_state) {
     'adjust_field_max' => NULL,
     '#disabled' => FALSE,
     '#required' => TRUE,
-    '#max' => 300,
+    '#max' => 100,
     '#min' => 6,
     '#orientation' => 'horizontal',
     '#range' => FALSE,
@@ -337,7 +337,7 @@ function credit_calc_calculate($data) {
 
   //Дальше создаем таблицу и выводим полученные данные
   // Создаем   заголовок таблицы
-  $caption = t('Кредитный калькулятор, график платежей');
+  //$caption = t('Кредитный калькулятор, график платежей');
   // Создаем заголовки столбцов
   $header = array(
     // Первый столбец
@@ -345,16 +345,16 @@ function credit_calc_calculate($data) {
       'data' => t('Месяц'),
     ),
     array(
-      'data' => t('Платеж'),
+      'data' => t('Ежемесячный платеж с учетом комиссии'),
     ),
     array(
-      'data' => t('Проценты'),
+      'data' => t('Погашение процентов'),
     ),
     array(
-      'data' => t('Основной долг'),
+      'data' => t('Погашение основного долга'),
     ),
     array(
-      'data' => t('Задолженность'),
+      'data' => t('Остаток задолженности'),
     )
   );
 
@@ -390,19 +390,29 @@ function credit_calc_calculate($data) {
     );
   };
 
-  $output = theme('table', array(
+  $output = '<h2>Краткое описание</h2>';
+  $output .= '<div id="result-header" class="wrapper">';
+  $output .= '<div class="rows"><span class="label">Ежемесячный платеж</span><span class="value">' . round($pl) . '</span></div>';
+  $output .= '<div class="rows"><span class="label">Переплата по процентам за кредит</span><span class="value">' . round($sum) . '</span></div>';
+  $output .= '</div>';
+
+  $output .= '<h2>График платежей</h2>';
+
+  $output .= '<div id="result-table" class="wrapper">';
+
+  $output .= theme('table', array(
       // Шапка таблицы
       'header' => $header,
       // Тело таблицы
       'rows' => $rows,
       // Заголовок таблицы
-      'caption' => $caption,
+      //'caption' => $caption,
       // Атрибуты таблицы
       'attributes' => array('width' => '100%')
     )
   );
 
-  $output .= '<div>Переплата по процентам за кредит: ' . round($sum) . '</div>';
+  $output .= '</div>';
 
   //debug($form_state['values']);
 
