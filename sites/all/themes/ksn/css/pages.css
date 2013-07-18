@@ -384,10 +384,53 @@ span.field-label { /* The inline field label used by the Fences module */
   width: 285px;
 }
 
-.node-type-webform .webform-client-form {
-  background: #85abf2;
-  padding: 10px;
-  border-radius: 10px;
+.webform-client-form {
+  background: url(../images/webform-bg.png) no-repeat;
+  width: 445px;
+  min-height: 584px;
+  padding: 20px 50px;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.webform-client-form label {
+  text-shadow: 1px 1px 1px #000;
+  font-size: 16px;
+  padding-left: 30px;
+}
+
+.webform-client-form input,
+.webform-client-form select {
+  border: 0;
+  border-radius: 5px;
+  height: 26px;
+}
+
+.webform-client-form select {
+  padding: 5px;
+}
+
+.webform-client-form .form-actions {
+  text-align: center;
+}
+
+.webform-client-form .form-submit {
+  background: url(../images/webform-submit.png) no-repeat;
+  width: 197px;
+  height: 51px;
+  font-size: 24px;
+}
+
+.webform-client-form textarea {
+  border: 0;
+  border-radius: 5px;
+}
+
+.webform-client-form .webform-component-date .webform-container-inline {
+  background: #fff;
+  display: inline-block;
+  border-radius: 5px;
 }
 
 /*

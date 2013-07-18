@@ -25,7 +25,7 @@
 }
 
 .form-required { /* The part of the label that indicates a required field */
-  color: #c00;
+  color: #fff;
 }
 
 .form-item .description { /* The descriptive help text (separate from the label) */
